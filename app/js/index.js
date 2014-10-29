@@ -31,6 +31,7 @@ function addGeometry() {
     // ];
 
     var material = new THREE.MeshBasicMaterial( {color: 0xffff00, map: map} );
+    var materialCenter = new THREE.MeshBasicMaterial( {color: 0xbb4400, map: map} );
     var sphere1 = new THREE.Mesh(new THREE.SphereGeometry(.06, 50, 50), material);
     sphere1.position.set(.5, .5, .5);
     scene.add(sphere1);
@@ -63,6 +64,10 @@ function addGeometry() {
     sphere8.position.set(-.5, -.5, -.5);
     scene.add(sphere8);
 
+    var sphere8 = new THREE.Mesh(new THREE.SphereGeometry(.06, 50, 50), materialCenter);
+    sphere8.position.set(0, 0, 0);
+    scene.add(sphere8);
+
     // add line
     var p1 = new THREE.Vector3(.5, .5, .5);
     var p2 = new THREE.Vector3(-.5, .5, .5);
@@ -73,18 +78,25 @@ function addGeometry() {
     var p7 = new THREE.Vector3(-.5, .5, -.5);
     var p8 = new THREE.Vector3(-.5, -.5, -.5);
 
-    var geometry1 = geometry2 = geometry3 = geometry4 = geometry5 = geometry6 = new THREE.Geometry();
+    var geometry = new THREE.Geometry();
     var material = new THREE.LineBasicMaterial({linewidth: 3});
-    // var color = new THREE.Color(0x00ff55);
-    geometry1.vertices.push(p1, p2, p3, p5);
-    geometry2.vertices.push(p1, p4, p2, p7);
-    geometry3.vertices.push(p7, p4, p6, p8);
-    geometry4.vertices.push(p1, p3, p2, p5);
-    geometry5.vertices.push(p5, p8, p6, p3);
-    geometry6.vertices.push(p4, p6, p7, p8);
+    geometry.vertices.push(p1, p2, p3, p5);
+    geometry.vertices.push(p1, p4, p2, p7);
+    geometry.vertices.push(p7, p4, p6, p8);
+    geometry.vertices.push(p1, p3, p2, p5);
+    geometry.vertices.push(p5, p8, p6, p3);
+    geometry.vertices.push(p4, p6, p7, p8);
     
-    var line = new THREE.Line(geometry1, material, THREE.LinePieces);
-    scene.add(line);
+    var line1 = new THREE.Line(geometry, material, THREE.LinePieces);
+    scene.add(line1);
+
+    var geometry = new THREE.Geometry();
+    var material2 = new THREE.LineDashedMaterial({fog: true, color: 0xff2233, dashSize: 5});
+    geometry.vertices.push(p1, p8, p3, p7);
+    geometry.vertices.push(p4, p5, p3, p6);
+
+    var line2 = new THREE.Line(geometry, material2, THREE.LinePieces);
+    scene.add(line2);
     // geometry.colors.push(color);
 
     // for (var i = 0.1; i > -2; i -= 0.2) {
@@ -167,35 +179,31 @@ function run() {
 }
 
 document.onkeydown=function(e){ 
-    var e=event.srcElement; 
-    if(event.keyCode==81) 
-    { 
-        camera.position.x =camera.position.x +.1;
-        renderer.render(scene, camera);
-    } 
-    if(event.keyCode== 87)
-    { 
-        camera.position.y =camera.position.y +.1;
-        renderer.render(scene, camera);
-    } 
-    if(event.keyCode==69)
-    { 
-        camera.position.z =camera.position.z +.1;
-        renderer.render(scene, camera);
-    } 
-    if(event.keyCode==65)
-    { 
-        camera.position.x =camera.position.x -.1;
-        renderer.render(scene, camera);
-    } 
-    if(event.keyCode==83)
-    {
-        camera.position.y =camera.position.y -.1;
-        renderer.render(scene, camera);
-    } 
+    var e = event.srcElement; 
+    if(event.keyCode == 40)
+        camera.position.y += .1;
+
+    if(event.keyCode == 38)
+        camera.position.y -= .1;
+
+    if(event.keyCode == 39) 
+        camera.position.x -= .1;
+
+    if(event.keyCode == 37)
+        camera.position.x += .1;
+
     if(event.keyCode==68)
-    { 
         camera.position.z =camera.position.z -.1;
-        renderer.render(scene, camera);
-    } 
+    renderer.render(scene, camera);
 } 
+
+document.onmousewheel = function(e) {
+    if (e.wheelDelta == 120)
+        camera.position.z -= .1;
+    else if (e.wheelDelta == -120) 
+        camera.position.z += .1;
+    else  ;
+
+    renderer.reder(scene, camera);
+
+}
