@@ -6,6 +6,14 @@ var render = null
   , animating = false;
 
 function addGeometry() {
+    addCube();
+    simple();
+    fcc();
+    // bcc();
+}
+
+
+function addCube() {
     // 创建带纹理的立方体,添加到场景中
     var mapUrl = '../img/star.png';
     var map = THREE.ImageUtils.loadTexture(mapUrl);
@@ -18,18 +26,14 @@ function addGeometry() {
     cube.rotation.y = .6;
     cube.rotation.z = .8;
     scene.add(cube);
+}
 
-    // var coordinate = [
-    //     {.5, .5, .5},
-    //     {-.5, .5, .5},
-    //     {-.5, -.5, .5},
-    //     {-.5, -.5, -.5},
-    //     {.5, -.5, .5},
-    //     {.5, .5, -.5},
-    //     {.5, -.5, -.5},
-    //     {-.5, .5, -.5}
-    // ];
-
+function simple() {
+    // 创建带纹理的立方体,添加到场景中
+    var mapUrl = '../img/star.png';
+    var map = THREE.ImageUtils.loadTexture(mapUrl);
+    var material = new THREE.MeshPhongMaterial({map: map});
+    // var material = new THREE.MeshBasicMaterial();
     var material = new THREE.MeshBasicMaterial( {color: 0xffff00, map: map} );
     var materialCenter = new THREE.MeshBasicMaterial( {color: 0xbb4400, map: map} );
     var sphere1 = new THREE.Mesh(new THREE.SphereGeometry(.06, 50, 50), material);
@@ -64,19 +68,15 @@ function addGeometry() {
     sphere8.position.set(-.5, -.5, -.5);
     scene.add(sphere8);
 
-    var sphere8 = new THREE.Mesh(new THREE.SphereGeometry(.06, 50, 50), materialCenter);
-    sphere8.position.set(0, 0, 0);
-    scene.add(sphere8);
-
     // add line
-    var p1 = new THREE.Vector3(.5, .5, .5);
-    var p2 = new THREE.Vector3(-.5, .5, .5);
-    var p3 = new THREE.Vector3(.5, -.5, .5);
-    var p4 = new THREE.Vector3(.5, .5, -.5);
-    var p5 = new THREE.Vector3(-.5, -.5, .5);
-    var p6 = new THREE.Vector3(.5, -.5, -.5);
-    var p7 = new THREE.Vector3(-.5, .5, -.5);
-    var p8 = new THREE.Vector3(-.5, -.5, -.5);
+    p1 = new THREE.Vector3(.5, .5, .5);
+    p2 = new THREE.Vector3(-.5, .5, .5);
+    p3 = new THREE.Vector3(.5, -.5, .5);
+    p4 = new THREE.Vector3(.5, .5, -.5);
+    p5 = new THREE.Vector3(-.5, -.5, .5);
+    p6 = new THREE.Vector3(.5, -.5, -.5);
+    p7 = new THREE.Vector3(-.5, .5, -.5);
+    p8 = new THREE.Vector3(-.5, -.5, -.5);
 
     var geometry = new THREE.Geometry();
     var material = new THREE.LineBasicMaterial({linewidth: 3});
@@ -89,26 +89,76 @@ function addGeometry() {
     
     var line1 = new THREE.Line(geometry, material, THREE.LinePieces);
     scene.add(line1);
+}
 
+// body centered cubic
+function bcc() {
+    // 创建带纹理的立方体,添加到场景中
+    var mapUrl = '../img/star.png';
+    var map = THREE.ImageUtils.loadTexture(mapUrl);
+    var material = new THREE.MeshPhongMaterial({map: map});
+    // var material = new THREE.MeshBasicMaterial();
+    var material = new THREE.MeshBasicMaterial( {color: 0xffff00, map: map} );
+    var materialCenter = new THREE.MeshBasicMaterial( {color: 0xbb4400, map: map} );
     var geometry = new THREE.Geometry();
     var material2 = new THREE.LineDashedMaterial({fog: true, color: 0xff2233, dashSize: 5});
+    var sphere = new THREE.Mesh(new THREE.SphereGeometry(.06, 50, 50), materialCenter);
+    sphere.position.set(0, 0, 0);
+    scene.add(sphere);
+
     geometry.vertices.push(p1, p8, p3, p7);
     geometry.vertices.push(p4, p5, p3, p6);
 
     var line2 = new THREE.Line(geometry, material2, THREE.LinePieces);
     scene.add(line2);
-    // geometry.colors.push(color);
 
-    // for (var i = 0.1; i > -2; i -= 0.2) {
-    //     var line = new THREE.Line(geometry, material, THREE.LinePieces);
-    //     line.position.y = i;
-    //     scene.add(line);
+}
 
-    //     var line = new THREE.Line(geometry, material, THREE.LinePieces);
-    //     line.position.x = -i;
-    //     line.rotation.z = Math.PI / 2;
-    //     scene.add(line);
-    // }
+// face centered cubic
+function fcc() {
+    // 创建带纹理的立方体,添加到场景中
+    var mapUrl = '../img/star.png';
+    var map = THREE.ImageUtils.loadTexture(mapUrl);
+    var material = new THREE.MeshPhongMaterial({map: map});
+    // var material = new THREE.MeshBasicMaterial();
+    var material = new THREE.MeshBasicMaterial( {color: 0xbb4400, map: map} );
+    var materialCenter = new THREE.MeshBasicMaterial( {color: 0xbb4400, map: map} );
+    var sphere1 = new THREE.Mesh(new THREE.SphereGeometry(.06, 50, 50), material);
+    sphere1.position.set(0, 0, .5);
+    scene.add(sphere1);
+
+    var sphere2 = new THREE.Mesh(new THREE.SphereGeometry(.061, 40, 50), material);
+    sphere2.position.set(.5, 0, 0);
+    scene.add(sphere2);
+
+    var sphere3 = new THREE.Mesh(new THREE.SphereGeometry(.061, 40, 50), material);
+    sphere3.position.set(0, 0, -.5);
+    scene.add(sphere3);
+
+    var sphere4 = new THREE.Mesh(new THREE.SphereGeometry(.06, 50, 50), material);
+    sphere4.position.set(0, .5, 0);
+    scene.add(sphere4);
+
+    var sphere5 = new THREE.Mesh(new THREE.SphereGeometry(.06, 50, 50), material);
+    sphere5.position.set(-.5, 0, 0);
+    scene.add(sphere5);
+
+    var sphere6 = new THREE.Mesh(new THREE.SphereGeometry(.06, 50, 50), material);
+    sphere6.position.set(0, -.5, 0);
+    scene.add(sphere6);
+
+    var geometry = new THREE.Geometry();
+    var material = new THREE.LineDashedMaterial({fog: true, color: 0xff2233, dashSize: 5});
+
+    geometry.vertices.push(p1, p5, p3, p2);
+    geometry.vertices.push(p1, p7, p2, p4);
+    geometry.vertices.push(p7, p6, p8, p4);
+    geometry.vertices.push(p1, p6, p2, p8);
+    geometry.vertices.push(p5, p6, p8, p3);
+    geometry.vertices.push(p4, p3, p7, p5);
+
+    var line = new THREE.Line(geometry, material, THREE.LinePieces);
+    scene.add(line);
 }
 
 function init() {
