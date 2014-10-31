@@ -8,8 +8,7 @@ var render = null
 function addGeometry() {
     addCube();
     simple();
-    fcc();
-    // bcc();
+    bcc();
 }
 
 

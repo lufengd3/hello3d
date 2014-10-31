@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.less"],"names":[],"mappings":"AAEA;EACC,yBAAA;;AAGD;EACC,qBAAA;;AAGD;EACC,gBAAA","file":"style.css","sourcesContent":["@bgcolor: #fafafa;\n\nbody {\n\tbackground-color: @bgcolor;\n}\n\na {\n\ttext-decoration: none;\n}\n\nli {\n\ttext-align: left;\n}\n"],"sourceRoot":"/source/"}
