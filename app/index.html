@@ -4,25 +4,96 @@
 	<meta charset="UTF-8">
     <meta name=”viewport” content=”width=device-width, initial-scale=1, maximum-scale=1″>
 	<link type="text/css" rel="stylesheet" href="css/style.css">
-	<script src="js/jquery.min.js"></script>
+    <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'>
 	<title>Hello</title>
-    <script src="js/three.min.js"></script>
-    <script src="js/index.js"></script>
-    <!-- <script src="js/test.js"></script> -->
 </head>
-<body onLoad="init()">
-    <nav>
-        <ul>
-            <li class="simple-model">简单立方模型</li>
-            <li class="fcc-model">面心立方模型</li>
-            <li class="bcc-model">体心立方模型</li>
-        </ul>
-    </nav>
-    <div id="container" 
-        style="width: 95%; height: 80%; background-color: #000000; position: absolute">
+<body>
+    <div class="main">
+        <section class="page index">
+            <nav>
+                <!-- <ul> -->
+                <!--     <li id="2">简单立方模型</li> -->
+                <!--     <li id="3">面心立方模型</li> -->
+                <!--     <li id="4">体心立方模型</li> -->
+                <!--     <li id="5">CsCl模型</li> -->
+                <!--     <li id="6">金刚石模型</li> -->
+                <!--     <li id="7">密堆积模型</li> -->
+                <!-- </ul> -->
+            </nav>
+            <h1>固体物理与半导体物理课程设计</h1>
+            <h4>卢峰，陈聪，王石</h4>
+            <p>单击并拖动鼠标以移动视角</p>
+            <p style="font-size: 11px">未完待续...</p>
+
+        </section>
+
+        <section class="page simple">
+            <div class="info">
+                简单立方模型
+            </div>
+            <div class="simpleBox box">
+            </div>
+        </section>
+
+        <section class="page fcc">
+            <div class="info">
+                面心立方模型
+            </div>
+            <div class="fccBox box">
+            </div>
+        </section>
+
+        <section class="page bcc">
+            <div class="info">
+                体心立方模型
+            </div>
+            <div class="bccBox box"> 
+            </div>
+        </section>
+
+        <section class="page cscl">
+            <div class="info">
+                CsCl模型
+            </div>
+            <div class="csclBox box">
+            </div>
+        </section>
+
+        <section class="page diamond">
+            <div class="info">
+                金刚石模型
+            </div>
+            <div class="diamondBox box"> 
+            </div>
+        </section>
+
+        <section class="page hcp">
+            <div class="info">
+                六方密堆积
+            </div>
+            <div class="hcpBox box"> 
+            </div>
+        </section>
+
+        <section class="page about">
+            Hello
+        </section>
     </div>
-    <div style="color: white; position: absolute">
-        方向键移动视角，滑动鼠标滚轮放大或缩小.
-    </div>
+
+	<script src="js/jquery.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/orbitControls.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/onepage-scroll.min.js"></script>
+    <script>
+        $(".main").onepage_scroll({
+            sectionContainer: "section",
+            animationTime: 600,
+            updateURL: true,
+            responsiveFallback: 600,
+            loop: true,
+            //direction: "horizontal"
+        });
+    </script>
 </body>
 </html>
