@@ -220,7 +220,7 @@ $(document).ready(function() {
     }
 
     function run() {
-        if (typeof renderer != 'undefined') {
+        if (renderer) {
             renderer.render(scene, camera);
             controls.update();
 
