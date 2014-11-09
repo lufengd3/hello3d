@@ -3,19 +3,46 @@ body {
 }
 a {
   text-decoration: none;
+  color: #2fc4ca;
 }
 li {
   text-align: left;
 }
 .box {
   width: 80%;
-  height: 80%;
+  height: 70%;
   background-color: #000000;
+  margin: 30px auto;
 }
 .index {
-  width: 1000px;
   text-align: center;
   margin-top: 180px;
+}
+.info {
+  width: 80%;
+  height: 100px;
+  margin: 5px auto;
+}
+.polarity {
+  vertical-align: top;
+}
+.angle {
+  font-size: 12px;
+}
+.hint {
+  color: red;
+  font-size: 14px;
+  margin-top: -15px;
+}
+.scrollHint {
+  position: absolute;
+  bottom: 200px;
+  left: 47%;
+  height: 80px;
+  opacity: 0.4;
+}
+.scrollHint:hover {
+  cursor: Pointer;
 }
 
 /*# sourceMappingURL=maps/style.css.map */

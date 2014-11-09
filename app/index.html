@@ -9,27 +9,25 @@
 </head>
 <body>
     <div class="main">
+        <a href="https://github.com/keith3/hello3d" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="img/gitribbons.png" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
         <section class="page index">
-            <nav>
-                <!-- <ul> -->
-                <!--     <li id="2">简单立方模型</li> -->
-                <!--     <li id="3">面心立方模型</li> -->
-                <!--     <li id="4">体心立方模型</li> -->
-                <!--     <li id="5">CsCl模型</li> -->
-                <!--     <li id="6">金刚石模型</li> -->
-                <!--     <li id="7">密堆积模型</li> -->
-                <!-- </ul> -->
-            </nav>
-            <h1>固体物理与半导体物理课程设计</h1>
-            <h4>卢峰，陈聪，王石</h4>
-            <p>单击并拖动鼠标以移动视角</p>
-            <p style="font-size: 11px">未完待续...</p>
-
+            <h1>固体与半导体物理课程设计</h1>
+            <h3>关于晶体结构的3D模型演示<h3>
+            <h4>小组成员:&nbsp; <a href='http://lufeng.me'>卢峰</a>，陈聪，王石</h4>
+            <!-- <p>单击并拖动鼠标以移动视角</p> -->
+            <img class='scrollHint' src='img/nav.png' />
         </section>
 
         <section class="page simple">
             <div class="info">
-                简单立方模型
+                <h2>简单立方模型</h2>
+                <p>
+                    简单立方晶胞中，立方体的每个定叫上各有一个格点，每个格点为8个晶胞所共有，对于考虑的晶胞只占有1/8，
+                    共有8个顶角，简单立方晶胞只含有1个格点，因此这时晶胞也是原胞，代表晶体：钋(Po)
+                </p>
+                <p class='hint'>
+                    提示：单击物体并拖动鼠标以移动视角
+                </p>
             </div>
             <div class="simpleBox box">
             </div>
@@ -37,7 +35,12 @@
 
         <section class="page fcc">
             <div class="info">
-                面心立方模型
+                <h2>面心立方模型</h2>
+                <p>
+                    面心立方晶胞在简单立方晶胞的基础上，每个面的面对角线交点各有一个格点，在面心上的格点为两个晶胞所共有，6个面共有3个格点为一个晶胞所占有，
+                    加上顶角的一个格点，一个面心立方晶胞共有4个格点，因此克制面心立方晶胞的体积相当于原胞的4倍。
+                    代表晶体：金(Au)，银(Ag)，铝(Al)，铜(Cu)
+                </p>
             </div>
             <div class="fccBox box">
             </div>
@@ -45,7 +48,12 @@
 
         <section class="page bcc">
             <div class="info">
-                体心立方模型
+                <h2>体心立方模型</h2>
+                <p>
+                    体心立方晶胞在简单立方晶胞的基础上，体对角线交点还有一个格点，因此含两个格点，由此推断体心立方晶胞的体积相当于原胞的2倍，
+                    代表晶体：钨(W)，钒(V)
+                    此类晶体具有较高的强度和熔点，是研制高强度、高温合金的基础材料。
+                </p>
             </div>
             <div class="bccBox box"> 
             </div>
@@ -53,7 +61,12 @@
 
         <section class="page cscl">
             <div class="info">
-                CsCl模型
+                <h2>CsCl模型</h2>
+                <p>
+                    氯化铯(CsCl)是由Cs<span class='polarity'>+</span>和Cl<span class='polarity'>-</span>构成的晶体，每种离子最临近的是异号离子，
+                    CsCl晶体的晶胞是两种简单立方结构沿体对角线位移1/2相互套构而形成的复式格子，复式格子的基元则是有体对角线上相距为1/2的氯例子和铯离子组成的。
+                    CsBr,CsI,TiCl,TiBr,TiI等化合物晶体都属于氯化铯结构。
+                </p>
             </div>
             <div class="csclBox box">
             </div>
@@ -61,7 +74,12 @@
 
         <section class="page diamond">
             <div class="info">
-                金刚石模型
+                <h2>金刚石模型</h2>
+                <p>
+                    金刚石由碳原子组成，是由两个面心立方沿立方体的体对角线位移1/4套构而成，是一个复式格子。
+                    基元由体对角线上相距为1/4的两个碳原子组成，金刚石结构中每个碳原子与其最近相邻的碳原子形成四面提结构，四个键长相等，两相邻键之间的夹角为
+                    109<span class='polarity angle'>o</span>28<span class='polarity'>'</span>，半导体元素如Si,Ge都是金刚石结构。
+                </p>
             </div>
             <div class="diamondBox box"> 
             </div>
@@ -69,15 +87,19 @@
 
         <section class="page hcp">
             <div class="info">
-                六方密堆积
+                <h2>六方密堆积</h2>
+                <p>
+                    原子密堆积的方式是指把原子看成硬球以孔隙最小的堆积方式堆积起来。
+                </p>
             </div>
             <div class="hcpBox box"> 
             </div>
         </section>
 
-        <section class="page about">
-            Hello
-        </section>
+        <!-- <section class="page about"> -->
+        <!--     <div class="cubeBox box"> --> 
+        <!--     </div> -->
+        <!-- </section> -->
     </div>
 
 	<script src="js/jquery.min.js"></script>
