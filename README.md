@@ -1,4 +1,4 @@
 hello3d
 =======
 
-learning webGL
+learning webGL, http://hello3d.me
